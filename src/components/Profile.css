@@ -1,0 +1,98 @@
+.profile {
+    padding: 20px;
+}
+
+.property-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 20px;
+    /* Space between cards */
+    max-width: 1200px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    /* Center the grid */
+}
+
+.property-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.property-card img {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.property-details {
+    flex-grow: 1;
+}
+
+.edit-button,
+.remove-button {
+    background-color: #007bff;
+    /* Blue background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+}
+
+.edit-button:hover,
+.remove-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+    transform: scale(1.05);
+    /* Slightly larger on hover */
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transactions-table th,
+.transactions-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.transactions-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.transactions-table .status {
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.transactions-table .status.sold {
+    background-color: #d4edda;
+    /* Green background */
+    color: #155724;
+    /* Dark green text */
+}
+
+.transactions-table .status.bought {
+    background-color: #f8d7da;
+    /* Red background */
+    color: #721c24;
+    /* Dark red text */
+}

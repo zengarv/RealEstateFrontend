@@ -1,0 +1,53 @@
+.property-listing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.property-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.property-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.property-card img {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.property-details {
+    flex-grow: 1;
+}
+
+.buy-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.buy-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+

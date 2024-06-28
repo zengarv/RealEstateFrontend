@@ -1,0 +1,37 @@
+.list-property {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.list-property form {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-property label {
+    margin-bottom: 10px;
+}
+
+.list-property input,
+.list-property textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.list-property button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.list-property button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
