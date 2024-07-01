@@ -1,5 +1,5 @@
 .property-details-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 0;
     background: #fff;
@@ -17,11 +17,11 @@
 
 .property-price {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    bottom: 15px;
+    right: 15px;
     background: rgba(255, 255, 255, 0.9);
     color: #333;
-    padding: 12px 25px;
+    padding: 12px 15px;
     border-radius: 30px;
     font-size: 1.3em;
     font-weight: bold;
@@ -65,7 +65,7 @@
     background: #f8f9fa;
     padding: 20px;
     border-radius: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .property-specs span {
@@ -92,7 +92,7 @@
     align-items: center;
     font-size: 1.4em;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .property-amenities h3 svg {
