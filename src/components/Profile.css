@@ -1,98 +1,143 @@
 .profile {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
+}
+
+.profile h2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile h2 svg {
+    margin-right: 10px;
 }
 
 .property-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 columns */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    /* Space between cards */
-    max-width: 1200px;
-    /* Adjust as needed */
-    margin: 0 auto;
-    /* Center the grid */
 }
 
 .property-card {
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: left;
-    text-decoration: none;
-    color: inherit;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .property-card img {
-    border-radius: 8px;
-    margin-bottom: 20px;
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
 }
 
 .property-details {
-    flex-grow: 1;
+    padding: 15px;
+}
+
+.property-details h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.property-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.property-specs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.property-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 .edit-button,
 .remove-button {
-    background-color: #007bff;
-    /* Blue background */
-    color: white;
+    padding: 8px 15px;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 5px;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.remove-button {
+    background-color: #f44336;
+    color: white;
 }
 
 .edit-button:hover,
 .remove-button:hover {
-    background-color: #0056b3;
-    /* Darker blue on hover */
-    transform: scale(1.05);
-    /* Slightly larger on hover */
+    opacity: 0.9;
+}
+
+.edit-button svg,
+.remove-button svg {
+    margin-right: 5px;
 }
 
 .transactions-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .transactions-table th,
 .transactions-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.transactions-table th {
-    background-color: #f2f2f2;
+    padding: 12px 15px;
     text-align: left;
 }
 
+.transactions-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.transactions-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
 .transactions-table .status {
-    text-align: center;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 .transactions-table .status.sold {
-    background-color: #d4edda;
-    /* Green background */
-    color: #155724;
-    /* Dark green text */
+    background-color: #e8f5e9;
+    color: #4CAF50;
 }
 
 .transactions-table .status.bought {
-    background-color: #f8d7da;
-    /* Red background */
-    color: #721c24;
-    /* Dark red text */
+    background-color: #fff3e0;
+    color: #FF9800;
 }

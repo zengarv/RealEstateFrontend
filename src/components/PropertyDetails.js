@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { FaEthereum, FaMapMarkerAlt, FaBed, FaBath, FaRuler, FaList } from 'react-icons/fa';
 import './PropertyDetails.css';
 
 const PropertyDetails = () => {
@@ -8,26 +9,16 @@ const PropertyDetails = () => {
         {
             id: 1,
             title: 'Beautiful Beach House',
-            description: 'A beautiful beach house with stunning ocean views.',
-            price: '5 ETH',
+            description: 'A beautiful beach house with stunning ocean views. Perfect for family vacations or as a rental property. Enjoy the sound of waves and breathtaking sunsets from your private balcony.',
+            price: '5',
             location: 'Miami, FL',
-            squareFootage: '3000 sq ft',
-            amenities: ['Pool', 'WiFi', 'Parking'],
-            rooms: 5,
-            image: 'path/to/beach-house.jpg'
+            squareFootage: 3000,
+            bedrooms: 5,
+            bathrooms: 3,
+            amenities: ['Pool', 'WiFi', 'Parking', 'Beach Access', 'Air Conditioning'],
+            image: '/images/properties/prop1.jpg'
         },
-        {
-            id: 2,
-            title: 'Modern City Apartment',
-            description: 'A sleek apartment in the heart of the city.',
-            price: '3 ETH',
-            location: 'New York, NY',
-            squareFootage: '1500 sq ft',
-            amenities: ['Gym', 'WiFi', 'Doorman'],
-            rooms: 3,
-            image: 'path/to/city-apartment.jpg'
-        },
-        // Add more properties as needed
+        // ... (other properties)
     ];
 
     const property = properties.find(property => property.id.toString() === id);
@@ -37,18 +28,33 @@ const PropertyDetails = () => {
     }
 
     return (
-        <div className="property-details">
-            <h2>{property.title}</h2>
-            <img src={property.image} alt={property.title} />
-            <p>{property.description}</p>
-            <p><strong>Price:</strong> {property.price}</p>
-            <p><strong>Location:</strong> {property.location}</p>
-            <p><strong>Square Footage:</strong> {property.squareFootage}</p>
-            <p><strong>Amenities:</strong> {property.amenities.join(', ')}</p>
-            <p><strong>Rooms:</strong> {property.rooms}</p>
+        <div className="property-details-container">
+            <div className="property-image" style={{ backgroundImage: `url(${property.image})` }}>
+                <div className="property-price">
+                    <FaEthereum /> {property.price} ETH
+                </div>
+            </div>
+            <div className="property-info">
+                <h2>{property.title}</h2>
+                <p className="property-location"><FaMapMarkerAlt /> {property.location}</p>
+                <div className="property-specs">
+                    <span><FaBed /> {property.bedrooms} bedrooms</span>
+                    <span><FaBath /> {property.bathrooms} bathrooms</span>
+                    <span><FaRuler /> {property.squareFootage} sqft</span>
+                </div>
+                <p className="property-description">{property.description}</p>
+                <div className="property-amenities">
+                    <h3><FaList /> Amenities</h3>
+                    <ul>
+                        {property.amenities.map((amenity, index) => (
+                            <li key={index}>{amenity}</li>
+                        ))}
+                    </ul>
+                </div>
+                <button className="buy-button">Buy Property</button>
+            </div>
         </div>
     );
 };
 
 export default PropertyDetails;
-
