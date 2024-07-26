@@ -1,10 +1,15 @@
 import React from 'react';
 import { FaIdCard, FaFileUpload } from 'react-icons/fa';
 
+import { useNavigate } from 'react-router-dom';
+
 const KYCVerification = () => {
+    const navigate = useNavigate();
+
     const handleKYC = (e) => {
         e.preventDefault();
         // Handle KYC verification logic
+        navigate('/user-type');
     };
 
     return (

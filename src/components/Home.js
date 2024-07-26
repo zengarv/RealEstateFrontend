@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEnvelope, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 const Home = ({ setIsLoggedIn }) => {
     const [isRegistered, setIsRegistered] = useState(true);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
         // Handle registration logic
         setIsLoggedIn(true);
+        navigate('/kyc');
     };
 
     const handleLogin = (e) => {
         e.preventDefault();
         // Handle login logic
         setIsLoggedIn(true);
+        navigate('/kyc');
+    };
+
+    const toggleRegistration = () => {
+        setIsRegistered(!isRegistered);
     };
 
     return (
@@ -34,7 +42,7 @@ const Home = ({ setIsLoggedIn }) => {
                             </div>
                             <button type="submit">Login</button>
                         </form>
-                        <p>Don't have an account? <span onClick={() => setIsRegistered(false)}>Register</span></p>
+                        <p>Don't have an account? <span onClick={toggleRegistration}>Register</span></p>
                     </div>
                 ) : (
                     <div>
@@ -58,7 +66,7 @@ const Home = ({ setIsLoggedIn }) => {
                             </div>
                             <button type="submit">Register</button>
                         </form>
-                        <p>Already have an account? <span onClick={() => setIsRegistered(true)}>Login</span></p>
+                        <p>Already have an account? <span onClick={toggleRegistration}>Login</span></p>
                     </div>
                 )}
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, NavLink, Navigate } from 'react-router-dom';
 import { FaHome, FaIdCard, FaList, FaSearch, FaUser } from 'react-icons/fa';
 import Home from './components/Home';
 import KYCVerification from './components/KYCVerification';
@@ -7,10 +7,12 @@ import PropertyListing from './components/PropertyListing';
 import PropertyDetails from './components/PropertyDetails';
 import Profile from './components/Profile';
 import ListProperty from './components/ListProperty';
+import UserTypeSelection from './components/UserTypeSelection';
 import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userType, setUserType] = useState(null);
 
   return (
     <Router>
@@ -21,25 +23,24 @@ const App = () => {
               <FaHome className="logo-icon" />
               <span className="logo-text">RealEstate<span className="logo-accent">Chain</span></span>
             </Link>
-            <nav>
-              <NavLink to="/" end><FaHome /> Home</NavLink>
-              <NavLink to="/properties"><FaSearch /> Properties</NavLink>
-              {isLoggedIn && (
-                <>
-                  <NavLink to="/kyc"><FaIdCard /> KYC</NavLink>
-                  <NavLink to="/list-property"><FaList /> List Property</NavLink>
-                  <NavLink to="/profile"><FaUser /> Profile</NavLink>
-                </>
-              )}
-            </nav>
+            
           </div>
         </header>
+
+
         <main className="content">
           <Routes>
             <Route path="/" element={<Home setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/kyc" element={<KYCVerification />} />
-            <Route path="/list-property" element={<ListProperty />} />
-            <Route path="/properties" element={<PropertyListing />} />
+            <Route path="/kyc" element={<KYCVerification setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/user-type" element={<UserTypeSelection setUserType={setUserType} />} />
+            <Route
+              path="/list-property"
+              element={userType === 'seller' ? <ListProperty /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/properties"
+              element={userType === 'buyer' ? <PropertyListing /> : <Navigate to="/" />}
+            />
             <Route path="/property/:id" element={<PropertyDetails />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
